@@ -1,0 +1,28 @@
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\bin\Release\RentalCar.BL.dll.config
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\bin\Release\RentalCar.BL.dll
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\bin\Release\RentalCar.BL.pdb
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\bin\Release\EntityFramework.dll
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\bin\Release\EntityFramework.SqlServer.dll
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\bin\Release\RentalCar.DAL.dll
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\bin\Release\RentalCar.Model.dll
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\bin\Release\RentalCar.DAL.pdb
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\bin\Release\RentalCar.Model.pdb
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\bin\Release\EntityFramework.xml
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\bin\Release\EntityFramework.SqlServer.xml
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\obj\Release\RentalCar.BL.csprojResolveAssemblyReference.cache
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\obj\Release\RentalCar.BL.dll
+D:\Work\RezervationForm\RentalCar\RentalCar.BL\obj\Release\RentalCar.BL.pdb
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\bin\Release\RentalCar.BL.dll.config
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\bin\Release\RentalCar.BL.dll
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\bin\Release\RentalCar.BL.pdb
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\bin\Release\EntityFramework.dll
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\bin\Release\EntityFramework.SqlServer.dll
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\bin\Release\RentalCar.DAL.dll
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\bin\Release\RentalCar.Model.dll
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\bin\Release\RentalCar.DAL.pdb
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\bin\Release\RentalCar.Model.pdb
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\bin\Release\EntityFramework.xml
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\bin\Release\EntityFramework.SqlServer.xml
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\obj\Release\RentalCar.BL.csprojResolveAssemblyReference.cache
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\obj\Release\RentalCar.BL.dll
+E:\.Net Trainning\RentalCarProject\RentalCar.BL\obj\Release\RentalCar.BL.pdb

@@ -1,0 +1,24 @@
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\bin\Release\RentalCar.DAL.dll.config
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\bin\Release\RentalCar.DAL.dll
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\bin\Release\RentalCar.DAL.pdb
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\bin\Release\EntityFramework.dll
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\bin\Release\RentalCar.Model.dll
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\bin\Release\RentalCar.Model.pdb
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\bin\Release\EntityFramework.xml
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\obj\Release\RentalCar.DAL.csprojResolveAssemblyReference.cache
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\obj\Release\RentalCar.DAL.dll
+D:\Work\RezervationForm\RentalCar\RentalCar.DAL\obj\Release\RentalCar.DAL.pdb
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\bin\Release\RentalCar.DAL.dll.config
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\bin\Release\RentalCar.DAL.dll
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\bin\Release\RentalCar.DAL.pdb
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\bin\Release\EntityFramework.dll
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\bin\Release\EntityFramework.SqlServer.dll
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\bin\Release\RentalCar.Model.dll
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\bin\Release\RentalCar.Model.pdb
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\bin\Release\EntityFramework.xml
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\bin\Release\EntityFramework.SqlServer.xml
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\obj\Release\RentalCar.DAL.csprojResolveAssemblyReference.cache
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\obj\Release\RentalCar.DAL.dll
+E:\.Net Trainning\RentalCarProject\RentalCar.DAL\obj\Release\RentalCar.DAL.pdb

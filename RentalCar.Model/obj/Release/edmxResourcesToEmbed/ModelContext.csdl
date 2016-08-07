@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Rental_CarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblBrand">
+    <Key>
+      <PropertyRef Name="BrandId" />
+    </Key>
+    <Property Name="BrandId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblModels" Relationship="Self.FK_tblModel_tblBrand" FromRole="tblBrand" ToRole="tblModel" />
+  </EntityType>
+  <EntityType Name="tblCar">
+    <Key>
+      <PropertyRef Name="CarId" />
+    </Key>
+    <Property Name="CarId" Type="Int32" Nullable="false" />
+    <Property Name="ModelId" Type="Int32" Nullable="false" />
+    <Property Name="RegistrationNumber" Type="Int32" Nullable="false" />
+    <Property Name="LocationId" Type="Int32" Nullable="false" />
+    <Property Name="isRent" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tblLocation" Relationship="Self.FK_tblCar_tblLocation" FromRole="tblCar" ToRole="tblLocation" />
+    <NavigationProperty Name="tblModel" Relationship="Self.FK_tblCar_tblModel" FromRole="tblCar" ToRole="tblModel" />
+    <NavigationProperty Name="tblRezervations" Relationship="Self.FK_tblRezervation_tblCar" FromRole="tblCar" ToRole="tblRezervation" />
+  </EntityType>
+  <EntityType Name="tblClient">
+    <Key>
+      <PropertyRef Name="ClientId" />
+    </Key>
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblRezervations" Relationship="Self.FK_tblRezervation_tblClient" FromRole="tblClient" ToRole="tblRezervation" />
+    <Property Name="CNP" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblLocation">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblCars" Relationship="Self.FK_tblCar_tblLocation" FromRole="tblLocation" ToRole="tblCar" />
+    <Property Name="TotalSum" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblModel">
+    <Key>
+      <PropertyRef Name="ModelId" />
+    </Key>
+    <Property Name="ModelId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrandId" Type="Int32" Nullable="false" />
+    <Property Name="PricePerDay" Type="Double" />
+    <NavigationProperty Name="tblBrand" Relationship="Self.FK_tblModel_tblBrand" FromRole="tblModel" ToRole="tblBrand" />
+    <NavigationProperty Name="tblCars" Relationship="Self.FK_tblCar_tblModel" FromRole="tblModel" ToRole="tblCar" />
+  </EntityType>
+  <EntityType Name="tblRezervation">
+    <Key>
+      <PropertyRef Name="RezervationId" />
+    </Key>
+    <Property Name="RezervationId" Type="Int32" Nullable="false" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="CarId" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EndLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblCar" Relationship="Self.FK_tblRezervation_tblCar" FromRole="tblRezervation" ToRole="tblCar" />
+    <NavigationProperty Name="tblClient" Relationship="Self.FK_tblRezervation_tblClient" FromRole="tblRezervation" ToRole="tblClient" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblModel_tblBrand">
+    <End Role="tblBrand" Type="Self.tblBrand" Multiplicity="1" />
+    <End Role="tblModel" Type="Self.tblModel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBrand">
+        <PropertyRef Name="BrandId" />
+      </Principal>
+      <Dependent Role="tblModel">
+        <PropertyRef Name="BrandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCar_tblLocation">
+    <End Role="tblLocation" Type="Self.tblLocation" Multiplicity="1" />
+    <End Role="tblCar" Type="Self.tblCar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLocation">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="tblCar">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCar_tblModel">
+    <End Role="tblModel" Type="Self.tblModel" Multiplicity="1" />
+    <End Role="tblCar" Type="Self.tblCar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblModel">
+        <PropertyRef Name="ModelId" />
+      </Principal>
+      <Dependent Role="tblCar">
+        <PropertyRef Name="ModelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRezervation_tblCar">
+    <End Role="tblCar" Type="Self.tblCar" Multiplicity="1" />
+    <End Role="tblRezervation" Type="Self.tblRezervation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCar">
+        <PropertyRef Name="CarId" />
+      </Principal>
+      <Dependent Role="tblRezervation">
+        <PropertyRef Name="CarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblRezervation_tblClient">
+    <End Role="tblClient" Type="Self.tblClient" Multiplicity="1" />
+    <End Role="tblRezervation" Type="Self.tblRezervation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblClient">
+        <PropertyRef Name="ClientId" />
+      </Principal>
+      <Dependent Role="tblRezervation">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Rental_CarEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblBrands" EntityType="Self.tblBrand" />
+    <EntitySet Name="tblCars" EntityType="Self.tblCar" />
+    <EntitySet Name="tblClients" EntityType="Self.tblClient" />
+    <EntitySet Name="tblLocations" EntityType="Self.tblLocation" />
+    <EntitySet Name="tblModels" EntityType="Self.tblModel" />
+    <EntitySet Name="tblRezervations" EntityType="Self.tblRezervation" />
+    <AssociationSet Name="FK_tblModel_tblBrand" Association="Self.FK_tblModel_tblBrand">
+      <End Role="tblBrand" EntitySet="tblBrands" />
+      <End Role="tblModel" EntitySet="tblModels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCar_tblLocation" Association="Self.FK_tblCar_tblLocation">
+      <End Role="tblLocation" EntitySet="tblLocations" />
+      <End Role="tblCar" EntitySet="tblCars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCar_tblModel" Association="Self.FK_tblCar_tblModel">
+      <End Role="tblModel" EntitySet="tblModels" />
+      <End Role="tblCar" EntitySet="tblCars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRezervation_tblCar" Association="Self.FK_tblRezervation_tblCar">
+      <End Role="tblCar" EntitySet="tblCars" />
+      <End Role="tblRezervation" EntitySet="tblRezervations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblRezervation_tblClient" Association="Self.FK_tblRezervation_tblClient">
+      <End Role="tblClient" EntitySet="tblClients" />
+      <End Role="tblRezervation" EntitySet="tblRezervations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
