@@ -1,4 +1,5 @@
 ﻿using RentalCar.BL.Services;
+using RentalCar.BL.Util;
 using RentalCar.DAL;
 using RentalCar.Model;
 using RentalCar.WindowsForm.Util;
@@ -14,22 +15,21 @@ namespace RentalCar.WindowsForm
     public partial class Form1 : Form
     {
 
-        int PageNumber = 0;
-        int CurrentStart = -1;
-        int CurrentEnd = -1;
+       private int _currentPage = 1;
+       private int _count = 0;
+        private const int PAGE_LIMIT = 2;
 
         public Form1()
         {
             InitializeComponent();
             InitializeAllCombobox();
-            InitializePageNrDefault();
+            InitializeCurrentPageTextBox();
         }
 
         public Form1(int carId)
         {
             InitializeComponent();
             InitializeAllCombobox();
-            InitializePageNrDefault();
         }
 
         private void InitializeDataGrid(List<tblCar> listCars)
@@ -51,43 +51,13 @@ namespace RentalCar.WindowsForm
             dataGridView1.Refresh();
         }
 
-
-        private void InitializePageNrDefault()
+        private void InitializeCurrentPageTextBox()
         {
-            PageNumber += 1;
-            pageNr.Text = PageNumber.ToString();
-            pageNr.ReadOnly = true;
-            pageNr.TextAlign = HorizontalAlignment.Center;
+            currentPageNr.Text = _currentPage.ToString();
+            currentPageNr.TextAlign = HorizontalAlignment.Center;
         }
 
-        private int CalculatePageNr(int value = 0, bool next = true)
-        {
-            if(next)
-            {
-               value++;
-               return value;
-            }
-            else
-            {
-                if(value <=1 )
-                {
-                    return value;
-                }
-                else
-                {
-                    value--;
-                    return value;
-                }
-            }
-        }
-
-        private void SetPageNr(int pageNumber)
-        {
-            pageNr.Text = pageNumber.ToString();
-            pageNr.ReadOnly = true;
-            pageNr.TextAlign = HorizontalAlignment.Center;
-        }
-
+               
         private void InitializeAllCombobox()
         {
             InitializeBrandCombobox();
@@ -128,7 +98,6 @@ namespace RentalCar.WindowsForm
 
             }
             modelCombobox.DataSource = c;
-
             modelCombobox.DisplayMember = "Text";
             modelCombobox.ValueMember = "Value";
 
@@ -153,8 +122,8 @@ namespace RentalCar.WindowsForm
 
         private void buttonGetListOfCars(object sender, EventArgs e)
         {
-            InitializeDataGrid(FilterListForPagination());
-            
+           
+           InitializeDataGrid(CarService.GetFilteredList(PAGE_LIMIT, PageAction.CalculateOffset(_currentPage, PAGE_LIMIT)));
         }
 
         private void CalculatePrice(object sender, EventArgs e)
@@ -202,87 +171,23 @@ namespace RentalCar.WindowsForm
             List<tblCar> listOfCars = CarService.GetListCarsByModel(modelId);
             return listOfCars;
         }
-        
-        //merge doar pentru primele 4 pagini//
+
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            PageNumber = CalculatePageNr(PageNumber, false);
-            
-            if (PageNumber == 1)
-            {
-                CurrentStart = PageNumber - 1;
-                CurrentEnd = PageNumber;
-            }
-            else
-            {
-                CurrentStart = CurrentEnd - 1;
 
-                if(PageNumber == 2)
-                {
-                    CurrentEnd = CurrentEnd - 1;
-                    CurrentStart = CurrentEnd - 1;
-                }
-                if(PageNumber == 3)
-                {
-                    CurrentEnd = PageNumber + 2;
-                }
-                if(PageNumber == 4)
-                {
-                    CurrentEnd = PageNumber + 3;
-                }    
-            }
-
-            InitializeDataGrid(FilterListForPagination(CurrentStart, CurrentEnd));
-
-            SetPageNr(PageNumber); 
         }
 
-        //merge pentru toate paginile///
         private void btnNext_Click(object sender, EventArgs e)
         {
-            PageNumber = CalculatePageNr(PageNumber);
-
-            if (PageNumber == 1)
-            {
-                CurrentStart = PageNumber - 1;
-                CurrentEnd = PageNumber;
-            }
-            else
-            {
-                CurrentStart = PageNumber;
-                CurrentEnd = PageNumber + 1;
-            }
-            
-            InitializeDataGrid(FilterListForPagination(CurrentStart, CurrentEnd));
-            SetPageNr(PageNumber);
+            _currentPage = Int32.Parse(currentPageNr.Text.ToString());
+            _currentPage++;
+            double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
+            List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
+            InitializeDataGrid(listOfCars);
+            currentPageNr.Text = _currentPage.ToString();
+            currentPageNr.TextAlign = HorizontalAlignment.Center;
         }
-              
-        private List<tblCar> FilterListForPagination(int startPosition = 0, int endPosition = 1)
-        {
-            List<tblCar> listOfCars = GetListCarsByModel();
-            List<tblCar> newListOfCars = new List<tblCar>();
-            
-            for (int i=startPosition; i<=endPosition; i++)
-            {
-                if (endPosition < listOfCars.Count)
-                {
-                    newListOfCars.Add(listOfCars[i]);
-                }
-                else
-                {
-                    if ((PageNumber - listOfCars.Count) >= 0)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        newListOfCars.Add(listOfCars[startPosition]);
-                    }
-                    break;
-                }
-            }
-            return newListOfCars;
-        }
+        
 
         private void buttonAddClicked(object sender, EventArgs e)
         {
@@ -290,6 +195,7 @@ namespace RentalCar.WindowsForm
             AddCarsForm addForm = new AddCarsForm();
             addForm.Show();
         }
+
     }
 
 }

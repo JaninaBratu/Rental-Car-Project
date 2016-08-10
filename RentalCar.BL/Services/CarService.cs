@@ -30,5 +30,15 @@ namespace RentalCar.BL.Services
         {
             return CarRepository.AddCar(registrationNumber, location, brand, model);
         }
+
+        public static int GetTotalNrOfCars(List<tblCar> listOfCars)
+        {
+            return CarRepository.GetTotalNrOfCars(listOfCars);
+        }
+
+        public static List<tblCar> GetFilteredList(int limit, double offset)
+        {
+            return CarRepository.GetFilteredList(limit, offset);
+        }
     }
 }

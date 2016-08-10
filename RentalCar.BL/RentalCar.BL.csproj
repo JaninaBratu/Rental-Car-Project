@@ -57,6 +57,7 @@
     <Compile Include="Services\ModelService.cs" />
     <Compile Include="Util\CarAction.cs" />
     <Compile Include="Util\CsvFileReader.cs" />
+    <Compile Include="Util\PageAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

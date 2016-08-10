@@ -12,3 +12,17 @@ E:\.Net Trainning\RentalCarProject\TestRentalCar\bin\Release\EntityFramework.xml
 E:\.Net Trainning\RentalCarProject\TestRentalCar\obj\Release\TestRentalCar.csprojResolveAssemblyReference.cache
 E:\.Net Trainning\RentalCarProject\TestRentalCar\obj\Release\TestRentalCar.exe
 E:\.Net Trainning\RentalCarProject\TestRentalCar\obj\Release\TestRentalCar.pdb
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Release\TestRentalCar.exe.config
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Release\TestRentalCar.exe
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Release\TestRentalCar.pdb
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Release\RentalCar.BL.dll
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Release\RentalCar.Model.dll
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Release\RentalCar.DAL.dll
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Release\EntityFramework.dll
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Release\RentalCar.BL.pdb
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Release\RentalCar.Model.pdb
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Release\RentalCar.DAL.pdb
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Release\EntityFramework.xml
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\obj\Release\TestRentalCar.csprojResolveAssemblyReference.cache
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\obj\Release\TestRentalCar.exe
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\obj\Release\TestRentalCar.pdb

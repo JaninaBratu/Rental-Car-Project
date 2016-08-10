@@ -47,8 +47,10 @@
             this.CarIdCheck = new System.Windows.Forms.CheckBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.pageNr = new System.Windows.Forms.TextBox();
+            this.currentPageNr = new System.Windows.Forms.TextBox();
             this.addButtonCar = new System.Windows.Forms.Button();
+            this.firstPageNr = new System.Windows.Forms.TextBox();
+            this.lastPageNr = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,7 +141,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(430, 261);
+            this.button2.Location = new System.Drawing.Point(426, 313);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(121, 23);
             this.button2.TabIndex = 10;
@@ -200,11 +202,11 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(548, 218);
+            this.button4.Location = new System.Drawing.Point(562, 218);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(52, 23);
             this.button4.TabIndex = 17;
-            this.button4.Text = "next";
+            this.button4.Text = ">";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.btnNext_Click);
             // 
@@ -212,22 +214,22 @@
             // 
             this.button5.Location = new System.Drawing.Point(356, 218);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(49, 23);
             this.button5.TabIndex = 18;
-            this.button5.Text = "previous";
+            this.button5.Text = "<";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
-            // pageNr
+            // currentPageNr
             // 
-            this.pageNr.Location = new System.Drawing.Point(462, 221);
-            this.pageNr.Name = "pageNr";
-            this.pageNr.Size = new System.Drawing.Size(53, 20);
-            this.pageNr.TabIndex = 19;
+            this.currentPageNr.Location = new System.Drawing.Point(450, 218);
+            this.currentPageNr.Name = "currentPageNr";
+            this.currentPageNr.Size = new System.Drawing.Size(53, 20);
+            this.currentPageNr.TabIndex = 19;
             // 
             // addButtonCar
             // 
-            this.addButtonCar.Location = new System.Drawing.Point(449, 296);
+            this.addButtonCar.Location = new System.Drawing.Point(450, 342);
             this.addButtonCar.Name = "addButtonCar";
             this.addButtonCar.Size = new System.Drawing.Size(75, 23);
             this.addButtonCar.TabIndex = 20;
@@ -235,13 +237,29 @@
             this.addButtonCar.UseVisualStyleBackColor = true;
             this.addButtonCar.Click += new System.EventHandler(this.buttonAddClicked);
             // 
+            // firstPageNr
+            // 
+            this.firstPageNr.Location = new System.Drawing.Point(411, 218);
+            this.firstPageNr.Name = "firstPageNr";
+            this.firstPageNr.Size = new System.Drawing.Size(29, 20);
+            this.firstPageNr.TabIndex = 21;
+            // 
+            // lastPageNr
+            // 
+            this.lastPageNr.Location = new System.Drawing.Point(518, 218);
+            this.lastPageNr.Name = "lastPageNr";
+            this.lastPageNr.Size = new System.Drawing.Size(29, 20);
+            this.lastPageNr.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 418);
+            this.Controls.Add(this.lastPageNr);
+            this.Controls.Add(this.firstPageNr);
             this.Controls.Add(this.addButtonCar);
-            this.Controls.Add(this.pageNr);
+            this.Controls.Add(this.currentPageNr);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.CarIdCheck);
@@ -290,8 +308,10 @@
         private System.Windows.Forms.CheckBox CarIdCheck;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox pageNr;
+        private System.Windows.Forms.TextBox currentPageNr;
         private System.Windows.Forms.Button addButtonCar;
+        private System.Windows.Forms.TextBox firstPageNr;
+        private System.Windows.Forms.TextBox lastPageNr;
     }
 }
 

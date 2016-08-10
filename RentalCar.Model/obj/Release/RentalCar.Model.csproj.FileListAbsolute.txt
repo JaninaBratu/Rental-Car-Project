@@ -18,3 +18,13 @@ E:\.Net Trainning\RentalCarProject\RentalCar.Model\bin\Release\EntityFramework.S
 E:\.Net Trainning\RentalCarProject\RentalCar.Model\obj\Release\RentalCar.Model.csprojResolveAssemblyReference.cache
 E:\.Net Trainning\RentalCarProject\RentalCar.Model\obj\Release\RentalCar.Model.dll
 E:\.Net Trainning\RentalCarProject\RentalCar.Model\obj\Release\RentalCar.Model.pdb
+E:\.Net Trainning\Rental-Car-Project\RentalCar.Model\bin\Release\RentalCar.Model.dll.config
+E:\.Net Trainning\Rental-Car-Project\RentalCar.Model\bin\Release\RentalCar.Model.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.Model\bin\Release\RentalCar.Model.pdb
+E:\.Net Trainning\Rental-Car-Project\RentalCar.Model\bin\Release\EntityFramework.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.Model\bin\Release\EntityFramework.SqlServer.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.Model\bin\Release\EntityFramework.xml
+E:\.Net Trainning\Rental-Car-Project\RentalCar.Model\bin\Release\EntityFramework.SqlServer.xml
+E:\.Net Trainning\Rental-Car-Project\RentalCar.Model\obj\Release\RentalCar.Model.csprojResolveAssemblyReference.cache
+E:\.Net Trainning\Rental-Car-Project\RentalCar.Model\obj\Release\RentalCar.Model.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.Model\obj\Release\RentalCar.Model.pdb

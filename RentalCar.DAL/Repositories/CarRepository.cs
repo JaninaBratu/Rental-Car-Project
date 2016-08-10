@@ -27,6 +27,22 @@ namespace RentalCar.DAL.Repositories
             }
         }
 
+        public static int GetTotalNrOfCars(List<tblCar> listOfCars)
+        {
+            using (var context = new Rental_CarEntities1())
+            {
+                try
+                {
+                    return (context.tblCars.ToList()).Count;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
         public static tblCar GetCarById(int carId)
         {
             using (var context = new Rental_CarEntities1())
@@ -85,6 +101,25 @@ namespace RentalCar.DAL.Repositories
                 else
                 {
                     return -1;
+                }
+            }
+        }
+
+        public static List<tblCar> GetFilteredList(int limit, double offset)
+        {
+            using (var context = new Rental_CarEntities1())
+            {
+                try
+                {
+                    //the Skip method is the offset
+                    //the Take methos is the limit 
+
+                    return context.tblCars.Include("tblLocation").OrderBy(c=> c.CarId).Skip(Convert.ToInt32(offset)).Take(limit).ToList();
+                }
+                catch (Exception)
+                {
+
+                    throw;
                 }
             }
         }
