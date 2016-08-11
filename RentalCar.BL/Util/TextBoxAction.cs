@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RentalCar.WindowsForm.Util
+namespace RentalCar.BL.Util
 {
     public class TextBoxAction:Form
     {

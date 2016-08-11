@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,8 +57,16 @@
     <Compile Include="Services\LocationService.cs" />
     <Compile Include="Services\ModelService.cs" />
     <Compile Include="Util\CarAction.cs" />
+    <Compile Include="Util\ComboBoxAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Util\ComboBoxItem.cs" />
     <Compile Include="Util\CsvFileReader.cs" />
     <Compile Include="Util\PageAction.cs" />
+    <Compile Include="Util\RezervationAction.cs" />
+    <Compile Include="Util\TextBoxAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

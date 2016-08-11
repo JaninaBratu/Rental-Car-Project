@@ -2,7 +2,7 @@
 using RentalCar.BL.Util;
 using RentalCar.DAL;
 using RentalCar.Model;
-using RentalCar.WindowsForm.Util;
+using RentalCar.BL.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 
 
-namespace RentalCar.WindowsForm
+namespace RentalCar.BL
 {
     public partial class Form1 : Form
     {
@@ -74,48 +74,9 @@ namespace RentalCar.WindowsForm
 
         private void InitializeAllCombobox()
         {
-            InitializeBrandCombobox();
+            ComboBoxAction.InitializeBrandCombobox(brandCombobox, modelCombobox);
         }
 
-        private void InitializeBrandCombobox()
-        {
-            List<tblBrand> listOfBrands = BrandService.GetBrandTypes();
-
-            List<ComboboxItem> c = new List<ComboboxItem>();
-            for (int i = 0; i < listOfBrands.Count; i++)
-            {
-
-                c.Add(new ComboboxItem(listOfBrands[i].Name.ToString(), listOfBrands[i].BrandId));
-
-                if (i == 0)
-                {
-                    InitializeModelCombobox(listOfBrands[i].BrandId);
-                }
-
-            }
-            brandCombobox.DataSource = c;
-
-            brandCombobox.DisplayMember = "Text";
-            brandCombobox.ValueMember = "Value";
-
-        }
-
-        private void InitializeModelCombobox(int brandId)
-        {
-            List<tblModel> listOfModels = ModelService.GetModelTypesByBrand(brandId);
-
-            List<ComboboxItem> c = new List<ComboboxItem>();
-            for (int i = 0; i < listOfModels.Count; i++)
-            {
-
-                c.Add(new ComboboxItem(listOfModels[i].Name.ToString(), listOfModels[i].ModelId));
-
-            }
-            modelCombobox.DataSource = c;
-            modelCombobox.DisplayMember = "Text";
-            modelCombobox.ValueMember = "Value";
-
-        }
         
         private void brandCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -124,7 +85,7 @@ namespace RentalCar.WindowsForm
 
             //modified
             //int selectedType = Int32.Parse(brandCombobox.SelectedValue.ToString());
-            InitializeModelCombobox(1);
+            ComboBoxAction.InitializeModelCombobox(1, modelCombobox);
         }
 
 
@@ -134,7 +95,6 @@ namespace RentalCar.WindowsForm
             string surname = surnameTextBox.Text;
             float price = float.Parse(priceTextBox.Text);
             
-            //Save rezervation
         }
 
         private void buttonGetListOfCars(object sender, EventArgs e)
@@ -210,6 +170,10 @@ namespace RentalCar.WindowsForm
                 previousButton.Enabled = false;
                 nextButton.Enabled = true;
                 currentPageNr = TextBoxAction.SetPreviousValueForPage(currentPageNr);
+
+                double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
+                List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
+                InitializeDataGrid(listOfCars);
             }
         }
 
@@ -230,6 +194,10 @@ namespace RentalCar.WindowsForm
                nextButton.Enabled = false;
                previousButton.Enabled = true;
                currentPageNr = TextBoxAction.SetNextValueForPage(currentPageNr);
+
+               double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
+               List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
+               InitializeDataGrid(listOfCars);
             }
         }
 
