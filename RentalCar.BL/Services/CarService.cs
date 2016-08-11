@@ -31,14 +31,19 @@ namespace RentalCar.BL.Services
             return CarRepository.AddCar(registrationNumber, location, brand, model);
         }
 
-        public static int GetTotalNrOfCars(List<tblCar> listOfCars)
-        {
-            return CarRepository.GetTotalNrOfCars(listOfCars);
-        }
-
         public static List<tblCar> GetFilteredList(int limit, double offset)
         {
             return CarRepository.GetFilteredList(limit, offset);
         }
+
+        public static int GetTotalNrOfCars()
+        {
+            return CarRepository.GetTotalNrOfCars();
+        }
+
+        //public static int GetTotalNrOfCarsByModelId(int modelId)
+        //{
+        //    return CarRepository.GetTotalNrOfCarByModelId(modelId);
+        //}
     }
 }

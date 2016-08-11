@@ -45,8 +45,8 @@
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.CarIdCheck = new System.Windows.Forms.CheckBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.nextButton = new System.Windows.Forms.Button();
+            this.previousButton = new System.Windows.Forms.Button();
             this.currentPageNr = new System.Windows.Forms.TextBox();
             this.addButtonCar = new System.Windows.Forms.Button();
             this.firstPageNr = new System.Windows.Forms.TextBox();
@@ -200,25 +200,25 @@
             this.CarIdCheck.UseVisualStyleBackColor = true;
             this.CarIdCheck.CheckedChanged += new System.EventHandler(this.CheckedCarId);
             // 
-            // button4
+            // nextButton
             // 
-            this.button4.Location = new System.Drawing.Point(562, 218);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(52, 23);
-            this.button4.TabIndex = 17;
-            this.button4.Text = ">";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.btnNext_Click);
+            this.nextButton.Location = new System.Drawing.Point(562, 218);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(52, 23);
+            this.nextButton.TabIndex = 17;
+            this.nextButton.Text = ">";
+            this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // button5
+            // previousButton
             // 
-            this.button5.Location = new System.Drawing.Point(356, 218);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(49, 23);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "<";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.btnPrevious_Click);
+            this.previousButton.Location = new System.Drawing.Point(356, 218);
+            this.previousButton.Name = "previousButton";
+            this.previousButton.Size = new System.Drawing.Size(49, 23);
+            this.previousButton.TabIndex = 18;
+            this.previousButton.Text = "<";
+            this.previousButton.UseVisualStyleBackColor = true;
+            this.previousButton.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // currentPageNr
             // 
@@ -260,8 +260,8 @@
             this.Controls.Add(this.firstPageNr);
             this.Controls.Add(this.addButtonCar);
             this.Controls.Add(this.currentPageNr);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.previousButton);
+            this.Controls.Add(this.nextButton);
             this.Controls.Add(this.CarIdCheck);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.priceTextBox);
@@ -306,8 +306,8 @@
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.CheckBox CarIdCheck;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.Button previousButton;
         private System.Windows.Forms.TextBox currentPageNr;
         private System.Windows.Forms.Button addButtonCar;
         private System.Windows.Forms.TextBox firstPageNr;

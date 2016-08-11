@@ -32,11 +32,11 @@
     <EntitySetMapping Name="tblLocations">
       <EntityTypeMapping TypeName="Rental_CarModel.tblLocation">
         <MappingFragment StoreEntitySet="tblLocation">
+          <ScalarProperty Name="Budget" ColumnName="Budget" />
           <ScalarProperty Name="LocationId" ColumnName="LocationId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Budget" ColumnName="Budget" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -53,6 +53,7 @@
     <EntitySetMapping Name="tblRezervations">
       <EntityTypeMapping TypeName="Rental_CarModel.tblRezervation">
         <MappingFragment StoreEntitySet="tblRezervation">
+          <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="RezervationId" ColumnName="RezervationId" />
           <ScalarProperty Name="ClientId" ColumnName="ClientId" />
           <ScalarProperty Name="CarId" ColumnName="CarId" />

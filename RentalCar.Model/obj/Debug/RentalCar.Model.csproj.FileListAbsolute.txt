@@ -26,3 +26,13 @@ D:\Work\RezervationForm\RentalCar\RentalCar.Model\bin\Debug\EntityFramework.SqlS
 D:\Work\RezervationForm\RentalCar\RentalCar.Model\obj\Debug\RentalCar.Model.csprojResolveAssemblyReference.cache
 D:\Work\RezervationForm\RentalCar\RentalCar.Model\obj\Debug\RentalCar.Model.dll
 D:\Work\RezervationForm\RentalCar\RentalCar.Model\obj\Debug\RentalCar.Model.pdb
+D:\Work\GitHub\Rental-Car-Project\RentalCar.Model\obj\Debug\RentalCar.Model.csprojResolveAssemblyReference.cache
+D:\Work\GitHub\Rental-Car-Project\RentalCar.Model\bin\Debug\RentalCar.Model.dll.config
+D:\Work\GitHub\Rental-Car-Project\RentalCar.Model\bin\Debug\RentalCar.Model.dll
+D:\Work\GitHub\Rental-Car-Project\RentalCar.Model\bin\Debug\RentalCar.Model.pdb
+D:\Work\GitHub\Rental-Car-Project\RentalCar.Model\bin\Debug\EntityFramework.dll
+D:\Work\GitHub\Rental-Car-Project\RentalCar.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\GitHub\Rental-Car-Project\RentalCar.Model\bin\Debug\EntityFramework.xml
+D:\Work\GitHub\Rental-Car-Project\RentalCar.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Work\GitHub\Rental-Car-Project\RentalCar.Model\obj\Debug\RentalCar.Model.dll
+D:\Work\GitHub\Rental-Car-Project\RentalCar.Model\obj\Debug\RentalCar.Model.pdb

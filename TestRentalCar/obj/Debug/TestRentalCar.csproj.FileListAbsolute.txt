@@ -38,3 +38,17 @@ D:\Work\RezervationForm\RentalCar\TestRentalCar\bin\Debug\EntityFramework.xml
 D:\Work\RezervationForm\RentalCar\TestRentalCar\obj\Debug\TestRentalCar.csprojResolveAssemblyReference.cache
 D:\Work\RezervationForm\RentalCar\TestRentalCar\obj\Debug\TestRentalCar.exe
 D:\Work\RezervationForm\RentalCar\TestRentalCar\obj\Debug\TestRentalCar.pdb
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\obj\Debug\TestRentalCar.csprojResolveAssemblyReference.cache
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\TestRentalCar.exe.config
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\TestRentalCar.exe
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\TestRentalCar.pdb
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.BL.dll
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.Model.dll
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.DAL.dll
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\EntityFramework.dll
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.BL.pdb
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.Model.pdb
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.DAL.pdb
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\EntityFramework.xml
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\obj\Debug\TestRentalCar.exe
+D:\Work\GitHub\Rental-Car-Project\TestRentalCar\obj\Debug\TestRentalCar.pdb

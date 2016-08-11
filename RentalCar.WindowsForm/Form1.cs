@@ -15,15 +15,15 @@ namespace RentalCar.WindowsForm
     public partial class Form1 : Form
     {
 
-       private int _currentPage = 1;
-       private int _count = 0;
-        private const int PAGE_LIMIT = 2;
+       private int _currentPage = 0;
+       private const int PAGE_LIMIT = 2;
 
         public Form1()
         {
             InitializeComponent();
             InitializeAllCombobox();
-            InitializeCurrentPageTextBox();
+            TextBoxAction.InitializeCurrentPageTextBox(currentPageNr, _currentPage);
+            SetEnable();
         }
 
         public Form1(int carId)
@@ -51,13 +51,27 @@ namespace RentalCar.WindowsForm
             dataGridView1.Refresh();
         }
 
-        private void InitializeCurrentPageTextBox()
+        
+
+        private void SetEnable()
         {
-            currentPageNr.Text = _currentPage.ToString();
-            currentPageNr.TextAlign = HorizontalAlignment.Center;
+            bool enablePrevious = CheckPreviousOperation(_currentPage);
+
+            if (enablePrevious)
+            {
+                nextButton.Enabled = false;
+                previousButton.Enabled = false;
+            }
         }
 
-               
+        private void ResetEnable(int currentPage)
+        {
+            if (currentPage >= 1)
+            {
+                nextButton.Enabled = true;
+            }
+        }
+
         private void InitializeAllCombobox()
         {
             InitializeBrandCombobox();
@@ -105,9 +119,12 @@ namespace RentalCar.WindowsForm
         
         private void brandCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //var selectVal = brandCombobox.SelectedValue;
+            //var brandId = selectVal.Value.ToString();
+
             //modified
-            int selectedType = Int32.Parse(brandCombobox.SelectedValue.ToString());
-            InitializeModelCombobox(selectedType);
+            //int selectedType = Int32.Parse(brandCombobox.SelectedValue.ToString());
+            InitializeModelCombobox(1);
         }
 
 
@@ -122,8 +139,12 @@ namespace RentalCar.WindowsForm
 
         private void buttonGetListOfCars(object sender, EventArgs e)
         {
-           
-           InitializeDataGrid(CarService.GetFilteredList(PAGE_LIMIT, PageAction.CalculateOffset(_currentPage, PAGE_LIMIT)));
+            _currentPage = ++_currentPage;
+
+            ResetEnable(_currentPage);
+
+            TextBoxAction.InitializeCurrentPageTextBox(currentPageNr, _currentPage);
+            InitializeDataGrid(CarService.GetFilteredList(PAGE_LIMIT, PageAction.CalculateOffset(_currentPage, PAGE_LIMIT)));
         }
 
         private void CalculatePrice(object sender, EventArgs e)
@@ -174,20 +195,73 @@ namespace RentalCar.WindowsForm
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
+            _currentPage = TextBoxAction.GetPreviousValueForPage(currentPageNr);
+            bool enablePrevious = CheckPreviousOperation(_currentPage);
 
+            if(!enablePrevious)
+            {
+                double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
+                List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
+                InitializeDataGrid(listOfCars);
+                TextBoxAction.InitializeCurrentPageTextBox(currentPageNr, _currentPage);
+            }
+            else
+            {
+                previousButton.Enabled = false;
+                nextButton.Enabled = true;
+                currentPageNr = TextBoxAction.SetPreviousValueForPage(currentPageNr);
+            }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            _currentPage = Int32.Parse(currentPageNr.Text.ToString());
-            _currentPage++;
-            double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
-            List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
-            InitializeDataGrid(listOfCars);
-            currentPageNr.Text = _currentPage.ToString();
-            currentPageNr.TextAlign = HorizontalAlignment.Center;
+            _currentPage = TextBoxAction.GetNextValueForPage(currentPageNr);
+            bool enableNext = CheckNextOperation(_currentPage);
+
+            if (!enableNext)
+            {
+                double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
+                List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
+                InitializeDataGrid(listOfCars);
+                TextBoxAction.InitializeCurrentPageTextBox(currentPageNr, _currentPage);
+            }
+            else
+            {
+               nextButton.Enabled = false;
+               previousButton.Enabled = true;
+               currentPageNr = TextBoxAction.SetNextValueForPage(currentPageNr);
+            }
         }
-        
+
+        private bool CheckNextOperation(int pageNr)
+        {
+            
+            int nrOfCars = CarService.GetTotalNrOfCars();
+
+            double nrOfPages = PageAction.GetNrOfPages(nrOfCars, PAGE_LIMIT);
+            double currentPageNr = System.Convert.ToDouble(pageNr);
+
+            if (currentPageNr == nrOfPages)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool CheckPreviousOperation(int nrPage = 1)
+        {
+            if (nrPage == 0 || nrPage == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         private void buttonAddClicked(object sender, EventArgs e)
         {

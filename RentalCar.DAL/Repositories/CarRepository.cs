@@ -23,23 +23,7 @@ namespace RentalCar.DAL.Repositories
 
                     throw;
                 }
-                
-            }
-        }
 
-        public static int GetTotalNrOfCars(List<tblCar> listOfCars)
-        {
-            using (var context = new Rental_CarEntities1())
-            {
-                try
-                {
-                    return (context.tblCars.ToList()).Count;
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
             }
         }
 
@@ -60,9 +44,9 @@ namespace RentalCar.DAL.Repositories
             }
         }
 
-        public static List<tblCar> OrderAscByRegistrNr(List<tblCar> listOfCars) 
+        public static List<tblCar> OrderAscByRegistrNr(List<tblCar> listOfCars)
         {
-            IEnumerable<tblCar> query =  listOfCars.OrderBy(car => car.RegistrationNumber);
+            IEnumerable<tblCar> query = listOfCars.OrderBy(car => car.RegistrationNumber);
             return query.ToList();
         }
 
@@ -114,7 +98,7 @@ namespace RentalCar.DAL.Repositories
                     //the Skip method is the offset
                     //the Take methos is the limit 
 
-                    return context.tblCars.Include("tblLocation").OrderBy(c=> c.CarId).Skip(Convert.ToInt32(offset)).Take(limit).ToList();
+                    return context.tblCars.Include("tblLocation").OrderBy(c => c.CarId).Skip(Convert.ToInt32(offset)).Take(limit).ToList();
                 }
                 catch (Exception)
                 {
@@ -123,5 +107,20 @@ namespace RentalCar.DAL.Repositories
                 }
             }
         }
+        public static int GetTotalNrOfCars()
+        {
+            using (var context = new Rental_CarEntities1())
+            {
+                return context.tblCars.Count();
+            }
+        }
+
+        //public static int GetTotalNrOfCarByModelId(int modelId)
+        //{
+        //    using (var context = new Rental_CarEntities1())
+        //    {
+        //        return context.tblCars.Where(c =>c.ModelId == modelId).Count();
+        //    }
+        //}
     }
 }

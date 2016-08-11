@@ -70,6 +70,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\ComboBoxItem.cs" />
+    <Compile Include="Util\TextBoxAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="AddCarsForm.resx">
       <DependentUpon>AddCarsForm.cs</DependentUpon>
     </EmbeddedResource>

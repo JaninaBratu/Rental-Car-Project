@@ -55,6 +55,7 @@
     <Property Name="EndDate" Type="datetime" Nullable="false" />
     <Property Name="StartLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="EndLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Price" Type="float" />
   </EntityType>
   <Association Name="FK_tblCar_tblLocation">
     <End Role="tblLocation" Type="Self.tblLocation" Multiplicity="1" />

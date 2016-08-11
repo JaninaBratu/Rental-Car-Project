@@ -18,8 +18,8 @@
           </Key>
           <Property Name="CarId" Type="int" Nullable="false" />
           <Property Name="ModelId" Type="int" Nullable="false" />
-          <Property Name="LocationId" Type="int" Nullable="false" />
           <Property Name="RegistrationNumber" Type="int" Nullable="false" />
+          <Property Name="LocationId" Type="int" Nullable="false" />
           <Property Name="isRent" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tblClient">
@@ -29,7 +29,6 @@
           <Property Name="ClientId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CNP" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblLocation">
           <Key>
@@ -39,7 +38,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TotalSum" Type="int" Nullable="false" />
+          <Property Name="Budget" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="tblModel">
           <Key>
@@ -61,20 +60,8 @@
           <Property Name="EndDate" Type="datetime" Nullable="false" />
           <Property Name="StartLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EndLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Price" Type="float" />
         </EntityType>
-        <Association Name="FK__tblCar__ModelId__1ED998B2">
-          <End Role="tblModel" Type="Self.tblModel" Multiplicity="1" />
-          <End Role="tblCar" Type="Self.tblCar" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblModel">
-              <PropertyRef Name="ModelId" />
-            </Principal>
-            <Dependent Role="tblCar">
-              <PropertyRef Name="ModelId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tblCar_tblLocation">
           <End Role="tblLocation" Type="Self.tblLocation" Multiplicity="1" />
           <End Role="tblCar" Type="Self.tblCar" Multiplicity="*" />
@@ -84,6 +71,18 @@
             </Principal>
             <Dependent Role="tblCar">
               <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCar_tblModel">
+          <End Role="tblModel" Type="Self.tblModel" Multiplicity="1" />
+          <End Role="tblCar" Type="Self.tblCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblModel">
+              <PropertyRef Name="ModelId" />
+            </Principal>
+            <Dependent Role="tblCar">
+              <PropertyRef Name="ModelId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -130,12 +129,12 @@
           <EntitySet Name="tblLocation" EntityType="Self.tblLocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblModel" EntityType="Self.tblModel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblRezervation" EntityType="Self.tblRezervation" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__tblCar__ModelId__1ED998B2" Association="Self.FK__tblCar__ModelId__1ED998B2">
-            <End Role="tblModel" EntitySet="tblModel" />
-            <End Role="tblCar" EntitySet="tblCar" />
-          </AssociationSet>
           <AssociationSet Name="FK_tblCar_tblLocation" Association="Self.FK_tblCar_tblLocation">
             <End Role="tblLocation" EntitySet="tblLocation" />
+            <End Role="tblCar" EntitySet="tblCar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCar_tblModel" Association="Self.FK_tblCar_tblModel">
+            <End Role="tblModel" EntitySet="tblModel" />
             <End Role="tblCar" EntitySet="tblCar" />
           </AssociationSet>
           <AssociationSet Name="FK_tblModel_tblBrand" Association="Self.FK_tblModel_tblBrand">
@@ -184,7 +183,6 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="tblRezervations" Relationship="Self.FK_tblRezervation_tblClient" FromRole="tblClient" ToRole="tblRezervation" />
-          <Property Name="CNP" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="tblLocation">
           <Key>
@@ -195,7 +193,7 @@
           <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="tblCars" Relationship="Self.FK_tblCar_tblLocation" FromRole="tblLocation" ToRole="tblCar" />
-          <Property Name="TotalSum" Type="Int32" Nullable="false" />
+          <Property Name="Budget" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="tblModel">
           <Key>
@@ -221,7 +219,7 @@
           <Property Name="EndLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="tblCar" Relationship="Self.FK_tblRezervation_tblCar" FromRole="tblRezervation" ToRole="tblCar" />
           <NavigationProperty Name="tblClient" Relationship="Self.FK_tblRezervation_tblClient" FromRole="tblRezervation" ToRole="tblClient" />
-          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Price" Type="Double" />
         </EntityType>
         <Association Name="FK_tblModel_tblBrand">
           <End Role="tblBrand" Type="Self.tblBrand" Multiplicity="1" />
@@ -339,7 +337,6 @@
           <EntitySetMapping Name="tblClients">
             <EntityTypeMapping TypeName="Rental_CarModel.tblClient">
               <MappingFragment StoreEntitySet="tblClient">
-                <ScalarProperty Name="CNP" ColumnName="CNP" />
                 <ScalarProperty Name="ClientId" ColumnName="ClientId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -349,7 +346,7 @@
           <EntitySetMapping Name="tblLocations">
             <EntityTypeMapping TypeName="Rental_CarModel.tblLocation">
               <MappingFragment StoreEntitySet="tblLocation">
-                <ScalarProperty Name="TotalSum" ColumnName="TotalSum" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
                 <ScalarProperty Name="LocationId" ColumnName="LocationId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="City" ColumnName="City" />
