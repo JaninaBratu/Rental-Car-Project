@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RentalCar.BL.Util
+
+namespace RentalCar.BL
 {
-    public class TextBoxAction:Form
+    public class TextBoxAction : Form
     {
 
         public static int GetNextValueForPage(TextBox textBox)
         {
             int currentPage = Int32.Parse(textBox.Text.ToString());
             currentPage++;
-            
             return currentPage;
         }
 
@@ -32,34 +32,28 @@ namespace RentalCar.BL.Util
             }
         }
 
-        public static TextBox SetNextValueForPage(TextBox textBox)
+        public static void SetNextValueForPage(TextBox textBox)
         {
             textBox.Text = GetNextValueForPage(textBox).ToString();
-            textBox.TextAlign = HorizontalAlignment.Center;
-
-            return textBox;
         }
 
-        public static TextBox SetPreviousValueForPage(TextBox textBox)
+        public static void SetPreviousValueForPage(TextBox textBox)
         {
             textBox.Text = GetPreviousValueForPage(textBox).ToString();
-            textBox.TextAlign = HorizontalAlignment.Center;
-
-            return textBox;
         }
 
+        // primul argument este textbox cuuuiiii?
         public static void InitializeCurrentPageTextBox(TextBox textBox, int pageNr)
         {
             if (pageNr == 0)
             {
                 textBox.Text = "";
-                textBox.TextAlign = HorizontalAlignment.Center;
             }
             else
             {
                 textBox.Text = pageNr.ToString();
-                textBox.TextAlign = HorizontalAlignment.Center;
             }
+            textBox.TextAlign = HorizontalAlignment.Center;
         }
 
     }

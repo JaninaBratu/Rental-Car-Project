@@ -1,4 +1,4 @@
-﻿using RentalCar.BL.Services;
+﻿using RentalCar.WindowsForm.Services;
 using RentalCar.Model;
 using System;
 using System.Collections.Generic;
@@ -7,8 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RentalCar.BL.Util
+namespace RentalCar.WindowsForm.Util
 {
+    // sa incercam sa extindem clasa Form1 si vedem daca avem acces la combobox-uri
     public class ComboBoxAction : Form
     {
 

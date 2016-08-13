@@ -1,6 +1,6 @@
-﻿using RentalCar.BL.Services;
+﻿using RentalCar.WindowsForm.Services;
 using RentalCar.Model;
-using RentalCar.BL.Util;
+using RentalCar.WindowsForm.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RentalCar.BL
+namespace RentalCar.WindowsForm
 {
     public partial class AddCarsForm : Form
     {

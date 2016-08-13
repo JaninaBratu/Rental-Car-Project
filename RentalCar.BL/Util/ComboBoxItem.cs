@@ -1,6 +1,6 @@
 ﻿
 
-namespace RentalCar.BL.Util
+namespace RentalCar.WindowsForm.Util
 {
     public class ComboboxItem
     {

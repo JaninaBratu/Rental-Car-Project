@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentalCar.BL.Util
+namespace RentalCar.WindowsForm.Util
 {
     public class CarAction
     {

@@ -1,4 +1,4 @@
-﻿namespace RentalCar.BL
+﻿namespace RentalCar.WindowsForm
 {
     partial class AddCarsForm
     {

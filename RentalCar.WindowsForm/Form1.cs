@@ -1,16 +1,14 @@
-﻿using RentalCar.BL.Services;
-using RentalCar.BL.Util;
+﻿using RentalCar.WindowsForm.Services;
+using RentalCar.WindowsForm.Util;
 using RentalCar.DAL;
 using RentalCar.Model;
-using RentalCar.BL.Util;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
+using RentalCar.BL;
 
 
-
-namespace RentalCar.BL
+namespace RentalCar.WindowsForm
 {
     public partial class Form1 : Form
     {
@@ -22,7 +20,7 @@ namespace RentalCar.BL
         {
             InitializeComponent();
             InitializeAllCombobox();
-            TextBoxAction.InitializeCurrentPageTextBox(currentPageNr, _currentPage);
+            TextBoxAction.InitializeCurrentPageTextBox(currentPageTextBox, _currentPage);
             SetEnable();
         }
 
@@ -52,18 +50,20 @@ namespace RentalCar.BL
         }
 
         
-
+        //setenable este ok; daca am stii si cui; presupun ca e logic si nu ma prind eu
         private void SetEnable()
         {
-            bool enablePrevious = CheckPreviousOperation(_currentPage);
+            //remove the argument; is a protected variable
+            bool enablePrevious = IsFirstPage(_currentPage);
 
+            // is ok; but i think is better if we try: _currnetPage > 2
             if (enablePrevious)
             {
                 nextButton.Enabled = false;
                 previousButton.Enabled = false;
             }
         }
-
+        //cui? vezi poate nu-ti trebuie
         private void ResetEnable(int currentPage)
         {
             if (currentPage >= 1)
@@ -101,9 +101,11 @@ namespace RentalCar.BL
         {
             _currentPage = ++_currentPage;
 
+            //de unde stii ca exista pagina 2; inainte sa iei elementele sau sa verifici cate pagini sunt maxim
             ResetEnable(_currentPage);
 
-            TextBoxAction.InitializeCurrentPageTextBox(currentPageNr, _currentPage);
+            TextBoxAction.InitializeCurrentPageTextBox(currentPageTextBox, _currentPage);
+            //fa-i variabile pt argumente
             InitializeDataGrid(CarService.GetFilteredList(PAGE_LIMIT, PageAction.CalculateOffset(_currentPage, PAGE_LIMIT)));
         }
 
@@ -155,61 +157,61 @@ namespace RentalCar.BL
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            _currentPage = TextBoxAction.GetPreviousValueForPage(currentPageNr);
-            bool enablePrevious = CheckPreviousOperation(_currentPage);
+            _currentPage = TextBoxAction.GetPreviousValueForPage(currentPageTextBox);
+            bool enablePrevious = IsFirstPage(_currentPage);
+            // de ce nu verifi si daca este ultimul (next)
 
-            if(!enablePrevious)
+            if(enablePrevious)
             {
-                double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
-                List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
-                InitializeDataGrid(listOfCars);
-                TextBoxAction.InitializeCurrentPageTextBox(currentPageNr, _currentPage);
+                previousButton.Enabled = false;
+                //next nu este verificat
+                nextButton.Enabled = true;
+                TextBoxAction.SetPreviousValueForPage(currentPageTextBox);
             }
             else
             {
-                previousButton.Enabled = false;
-                nextButton.Enabled = true;
-                currentPageNr = TextBoxAction.SetPreviousValueForPage(currentPageNr);
-
-                double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
-                List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
-                InitializeDataGrid(listOfCars);
+                TextBoxAction.InitializeCurrentPageTextBox(currentPageTextBox, _currentPage);
             }
+
+            double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
+            List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
+            InitializeDataGrid(listOfCars);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            _currentPage = TextBoxAction.GetNextValueForPage(currentPageNr);
-            bool enableNext = CheckNextOperation(_currentPage);
+            _currentPage = TextBoxAction.GetNextValueForPage(currentPageTextBox);
+            bool enableNext = IsLastPage(_currentPage);
 
-            if (!enableNext)
+            if (enableNext)
             {
-                double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
-                List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
-                InitializeDataGrid(listOfCars);
-                TextBoxAction.InitializeCurrentPageTextBox(currentPageNr, _currentPage);
+                nextButton.Enabled = false;
+                previousButton.Enabled = true;
+                TextBoxAction.SetNextValueForPage(currentPageTextBox);
             }
             else
             {
-               nextButton.Enabled = false;
-               previousButton.Enabled = true;
-               currentPageNr = TextBoxAction.SetNextValueForPage(currentPageNr);
-
-               double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
-               List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
-               InitializeDataGrid(listOfCars);
+                if (Int32.Parse(currentPageTextBox.Text.ToString()) == 1)
+                {}
+                else
+                {
+                    nextButton.Enabled = true;
+                    previousButton.Enabled = true;
+                }
             }
+
+            double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
+            List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
+            InitializeDataGrid(listOfCars);
         }
 
-        private bool CheckNextOperation(int pageNr)
+        private bool IsLastPage(int _currentPage)
         {
             
             int nrOfCars = CarService.GetTotalNrOfCars();
+            int nrOfPages = Convert.ToInt32(PageAction.GetNrOfPages(nrOfCars, PAGE_LIMIT));
 
-            double nrOfPages = PageAction.GetNrOfPages(nrOfCars, PAGE_LIMIT);
-            double currentPageNr = System.Convert.ToDouble(pageNr);
-
-            if (currentPageNr == nrOfPages)
+            if (_currentPage == nrOfPages)
             {
                 return true;
             }
@@ -219,9 +221,9 @@ namespace RentalCar.BL
             }
         }
 
-        private bool CheckPreviousOperation(int nrPage = 1)
+        private bool IsFirstPage(int _currentPage = 1)
         {
-            if (nrPage == 0 || nrPage == 1)
+            if (_currentPage > 2)
             {
                 return true;
             }

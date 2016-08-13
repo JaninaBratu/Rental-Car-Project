@@ -77,7 +77,6 @@ namespace RentalCar.DAL.Repositories
                     car.RegistrationNumber = registrationNumber;
                     car.LocationId = location;
                     car.ModelId = model;
-                    //car.tblModel.BrandId = brand;
                     context.tblCars.Add(car);
                     context.SaveChanges();
                     return car.CarId;
@@ -114,13 +113,6 @@ namespace RentalCar.DAL.Repositories
                 return context.tblCars.Count();
             }
         }
-
-        //public static int GetTotalNrOfCarByModelId(int modelId)
-        //{
-        //    using (var context = new Rental_CarEntities1())
-        //    {
-        //        return context.tblCars.Where(c =>c.ModelId == modelId).Count();
-        //    }
-        //}
+        
     }
 }

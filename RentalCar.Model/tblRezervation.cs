@@ -21,7 +21,7 @@ namespace RentalCar.Model
         public System.DateTime EndDate { get; set; }
         public string StartLocation { get; set; }
         public string EndLocation { get; set; }
-        public Nullable<double> Price { get; set; }
+        public double Price { get; set; }
     
         public virtual tblCar tblCar { get; set; }
         public virtual tblClient tblClient { get; set; }

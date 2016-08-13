@@ -1,4 +1,4 @@
-﻿namespace RentalCar.BL
+﻿namespace RentalCar.WindowsForm
 {
     partial class Form1
     {
@@ -47,7 +47,7 @@
             this.CarIdCheck = new System.Windows.Forms.CheckBox();
             this.nextButton = new System.Windows.Forms.Button();
             this.previousButton = new System.Windows.Forms.Button();
-            this.currentPageNr = new System.Windows.Forms.TextBox();
+            this.currentPageTextBox = new System.Windows.Forms.TextBox();
             this.addButtonCar = new System.Windows.Forms.Button();
             this.firstPageNr = new System.Windows.Forms.TextBox();
             this.lastPageNr = new System.Windows.Forms.TextBox();
@@ -220,12 +220,12 @@
             this.previousButton.UseVisualStyleBackColor = true;
             this.previousButton.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
-            // currentPageNr
+            // currentPageTextBox
             // 
-            this.currentPageNr.Location = new System.Drawing.Point(450, 218);
-            this.currentPageNr.Name = "currentPageNr";
-            this.currentPageNr.Size = new System.Drawing.Size(53, 20);
-            this.currentPageNr.TabIndex = 19;
+            this.currentPageTextBox.Location = new System.Drawing.Point(450, 218);
+            this.currentPageTextBox.Name = "currentPageTextBox";
+            this.currentPageTextBox.Size = new System.Drawing.Size(53, 20);
+            this.currentPageTextBox.TabIndex = 19;
             // 
             // addButtonCar
             // 
@@ -259,7 +259,7 @@
             this.Controls.Add(this.lastPageNr);
             this.Controls.Add(this.firstPageNr);
             this.Controls.Add(this.addButtonCar);
-            this.Controls.Add(this.currentPageNr);
+            this.Controls.Add(this.currentPageTextBox);
             this.Controls.Add(this.previousButton);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.CarIdCheck);
@@ -308,7 +308,7 @@
         private System.Windows.Forms.CheckBox CarIdCheck;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button previousButton;
-        private System.Windows.Forms.TextBox currentPageNr;
+        private System.Windows.Forms.TextBox currentPageTextBox;
         private System.Windows.Forms.Button addButtonCar;
         private System.Windows.Forms.TextBox firstPageNr;
         private System.Windows.Forms.TextBox lastPageNr;

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RentalCar.BL.Properties
+namespace RentalCar.WindowsForm.Properties
 {
 
 

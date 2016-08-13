@@ -75,3 +75,23 @@ D:\Work\GitHub\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.Wind
 D:\Work\GitHub\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.pdb
 D:\Work\GitHub\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.BL.AddCarsForm.resources
 D:\Work\GitHub\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.BL.Form1.resources
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\RentalCar.WindowsForm.exe.config
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\RentalCar.WindowsForm.exe
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\RentalCar.WindowsForm.pdb
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\EntityFramework.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\EntityFramework.SqlServer.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\RentalCar.BL.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\RentalCar.DAL.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\RentalCar.Model.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\RentalCar.BL.pdb
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\RentalCar.DAL.pdb
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\RentalCar.Model.pdb
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\EntityFramework.xml
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\EntityFramework.SqlServer.xml
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.csprojResolveAssemblyReference.cache
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.Properties.Resources.resources
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.csproj.GenerateResource.Cache
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.exe
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.pdb
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.AddCarsForm.resources
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.Form1.resources

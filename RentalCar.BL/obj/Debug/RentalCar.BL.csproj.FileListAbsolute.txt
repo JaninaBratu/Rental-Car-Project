@@ -54,3 +54,17 @@ D:\Work\GitHub\Rental-Car-Project\RentalCar.BL\bin\Debug\EntityFramework.SqlServ
 D:\Work\GitHub\Rental-Car-Project\RentalCar.BL\obj\Debug\RentalCar.BL.csprojResolveAssemblyReference.cache
 D:\Work\GitHub\Rental-Car-Project\RentalCar.BL\obj\Debug\RentalCar.BL.dll
 D:\Work\GitHub\Rental-Car-Project\RentalCar.BL\obj\Debug\RentalCar.BL.pdb
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\bin\Debug\RentalCar.BL.dll.config
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\bin\Debug\RentalCar.BL.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\bin\Debug\RentalCar.BL.pdb
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\bin\Debug\EntityFramework.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\bin\Debug\EntityFramework.SqlServer.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\bin\Debug\RentalCar.DAL.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\bin\Debug\RentalCar.Model.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\bin\Debug\RentalCar.DAL.pdb
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\bin\Debug\RentalCar.Model.pdb
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\bin\Debug\EntityFramework.xml
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\bin\Debug\EntityFramework.SqlServer.xml
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\obj\Debug\RentalCar.BL.csprojResolveAssemblyReference.cache
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\obj\Debug\RentalCar.BL.dll
+E:\.Net Trainning\Rental-Car-Project\RentalCar.BL\obj\Debug\RentalCar.BL.pdb

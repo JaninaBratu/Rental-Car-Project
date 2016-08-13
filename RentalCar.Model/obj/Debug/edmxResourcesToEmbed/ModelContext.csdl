@@ -29,6 +29,7 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="tblRezervations" Relationship="Self.FK_tblRezervation_tblClient" FromRole="tblClient" ToRole="tblRezervation" />
+    <Property Name="CNP" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="tblLocation">
     <Key>
@@ -39,7 +40,7 @@
     <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="tblCars" Relationship="Self.FK_tblCar_tblLocation" FromRole="tblLocation" ToRole="tblCar" />
-    <Property Name="Budget" Type="Double" Nullable="false" />
+    <Property Name="TotalSum" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="tblModel">
     <Key>
@@ -65,7 +66,7 @@
     <Property Name="EndLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="tblCar" Relationship="Self.FK_tblRezervation_tblCar" FromRole="tblRezervation" ToRole="tblCar" />
     <NavigationProperty Name="tblClient" Relationship="Self.FK_tblRezervation_tblClient" FromRole="tblRezervation" ToRole="tblClient" />
-    <Property Name="Price" Type="Double" />
+    <Property Name="Price" Type="Double" Nullable="false" />
   </EntityType>
   <Association Name="FK_tblModel_tblBrand">
     <End Role="tblBrand" Type="Self.tblBrand" Multiplicity="1" />

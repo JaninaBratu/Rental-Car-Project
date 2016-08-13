@@ -23,6 +23,7 @@
     <EntitySetMapping Name="tblClients">
       <EntityTypeMapping TypeName="Rental_CarModel.tblClient">
         <MappingFragment StoreEntitySet="tblClient">
+          <ScalarProperty Name="CNP" ColumnName="CNP" />
           <ScalarProperty Name="ClientId" ColumnName="ClientId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -32,7 +33,7 @@
     <EntitySetMapping Name="tblLocations">
       <EntityTypeMapping TypeName="Rental_CarModel.tblLocation">
         <MappingFragment StoreEntitySet="tblLocation">
-          <ScalarProperty Name="Budget" ColumnName="Budget" />
+          <ScalarProperty Name="TotalSum" ColumnName="TotalSum" />
           <ScalarProperty Name="LocationId" ColumnName="LocationId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="City" ColumnName="City" />

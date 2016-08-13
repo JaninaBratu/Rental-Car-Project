@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentalCar.BL.Util
+namespace RentalCar.WindowsForm.Util
 {
     public class PageAction
     {
-        public static double GetNrOfPages(int totalnrOfElements, int pageLimit)
+        // the first arg had nrOfCars; why did u change it?
+        public static double GetNrOfPages(int nrOfCars, int pageLimit)
         {
-            var pageNumber = totalnrOfElements / pageLimit;
+            //you must have a double result; not an interger one
+            var pageNumber = nrOfCars / pageLimit;
             double doubleVal = System.Convert.ToDouble(pageNumber);
             return Math.Round(doubleVal, 1, MidpointRounding.AwayFromZero);
         }

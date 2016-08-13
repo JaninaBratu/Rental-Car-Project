@@ -52,3 +52,17 @@ D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.DAL.pdb
 D:\Work\GitHub\Rental-Car-Project\TestRentalCar\bin\Debug\EntityFramework.xml
 D:\Work\GitHub\Rental-Car-Project\TestRentalCar\obj\Debug\TestRentalCar.exe
 D:\Work\GitHub\Rental-Car-Project\TestRentalCar\obj\Debug\TestRentalCar.pdb
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Debug\TestRentalCar.exe.config
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Debug\TestRentalCar.exe
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Debug\TestRentalCar.pdb
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.BL.dll
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.Model.dll
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.DAL.dll
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Debug\EntityFramework.dll
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.BL.pdb
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.Model.pdb
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Debug\RentalCar.DAL.pdb
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\bin\Debug\EntityFramework.xml
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\obj\Debug\TestRentalCar.csprojResolveAssemblyReference.cache
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\obj\Debug\TestRentalCar.exe
+E:\.Net Trainning\Rental-Car-Project\TestRentalCar\obj\Debug\TestRentalCar.pdb
