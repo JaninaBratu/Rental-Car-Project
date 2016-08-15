@@ -89,9 +89,9 @@ E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\RentalCar.M
 E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\EntityFramework.xml
 E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\bin\Debug\EntityFramework.SqlServer.xml
 E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.csprojResolveAssemblyReference.cache
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.AddCarsForm.resources
+E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.Form1.resources
 E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.Properties.Resources.resources
 E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.csproj.GenerateResource.Cache
 E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.exe
 E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.pdb
-E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.AddCarsForm.resources
-E:\.Net Trainning\Rental-Car-Project\RentalCar.WindowsForm\obj\Debug\RentalCar.WindowsForm.Form1.resources

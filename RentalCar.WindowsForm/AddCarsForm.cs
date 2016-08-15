@@ -19,6 +19,12 @@ namespace RentalCar.WindowsForm
         {
             InitializeComponent();
             InitializeAllCombobox();
+            SetVisibilityLabel();
+        }
+
+        private void SetVisibilityLabel()
+        {
+            messageSaveLabel.Hide();
         }
 
         private void InitializeAllCombobox()
@@ -86,13 +92,58 @@ namespace RentalCar.WindowsForm
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            CarService.AddCar(int.Parse(registrationTextBox.Text), Int32.Parse(locationComboBox.SelectedValue.ToString()), 
-                              Int32.Parse(brandComboBox.SelectedValue.ToString()), 
-                              Int32.Parse(modelComboBox.SelectedValue.ToString()));
+            int registrationNumber = Int32.Parse(registrationTextBox.Text.ToString());
+            int location = Int32.Parse(locationComboBox.SelectedValue.ToString());
+            int brand = Int32.Parse(brandComboBox.SelectedValue.ToString());
+            int model = Int32.Parse(modelComboBox.SelectedValue.ToString());
 
-            messageSaveLabel.Text = "The car has been succesfully added! ";
-            messageSaveLabel.ForeColor = System.Drawing.Color.Green;
-            messageSaveLabel.Show();
+            // validation
+
+            int resultOfValidation = CarAction.ValidateRegistrationNumber(registrationNumber);
+            if (resultOfValidation == 1)
+            {
+                int resultRegistrationNumber = CarService.CheckRegistrationNumber(registrationNumber);
+                if (resultRegistrationNumber == -1)
+                {
+                    CarService.AddCar(registrationNumber, location, brand, model);
+                    SetMessageLabel("The car has been succesfully added! ");
+                }
+                else
+                {
+                    SetMessageLabel("This car is already in the database!");
+                }
+            }
+            else if (resultOfValidation == -1)
+            {
+                SetMessageLabel
+                    ("The registration number cannot be formed from characters. Please enter only digits!");
+                
+            }
+            else if (resultOfValidation == -2)
+            {
+                SetMessageLabel
+                    ("The registration number is LESS than the number of digits accepted. The number must be exactly 7 digits!");
+                
+            }
+            else if (resultOfValidation == -3)
+            {
+                SetMessageLabel
+                    ("The registration number is GREATER than the number of digits accepted. The number must be exactly 7 digits!");
+                
+            }
+            else if (resultOfValidation == -4)
+            {
+                SetMessageLabel
+                    ("The registration number cannot be formed from special characters. Please enter only digits!");
+                
+            }
         }
+
+        public void SetMessageLabel(string message)
+        {
+            messageSaveLabel.Text = message;
+            messageSaveLabel.ForeColor = System.Drawing.Color.Red;
+            messageSaveLabel.Show();
+        } 
     }
 }

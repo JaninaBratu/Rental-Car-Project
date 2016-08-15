@@ -6,22 +6,21 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using RentalCar.BL;
-
+using System.Text.RegularExpressions;
 
 namespace RentalCar.WindowsForm
 {
     public partial class Form1 : Form
     {
 
-       private int _currentPage = 0;
+       //private int _currentPage = 0;
        private const int PAGE_LIMIT = 2;
 
         public Form1()
         {
             InitializeComponent();
             InitializeAllCombobox();
-            TextBoxAction.InitializeCurrentPageTextBox(currentPageTextBox, _currentPage);
-            SetEnable();
+                       
         }
 
         public Form1(int carId)
@@ -50,20 +49,7 @@ namespace RentalCar.WindowsForm
         }
 
         
-        //setenable este ok; daca am stii si cui; presupun ca e logic si nu ma prind eu
-        private void SetEnable()
-        {
-            //remove the argument; is a protected variable
-            bool enablePrevious = IsFirstPage(_currentPage);
-
-            // is ok; but i think is better if we try: _currnetPage > 2
-            if (enablePrevious)
-            {
-                nextButton.Enabled = false;
-                previousButton.Enabled = false;
-            }
-        }
-        //cui? vezi poate nu-ti trebuie
+       
         private void ResetEnable(int currentPage)
         {
             if (currentPage >= 1)
@@ -99,14 +85,39 @@ namespace RentalCar.WindowsForm
 
         private void buttonGetListOfCars(object sender, EventArgs e)
         {
-            _currentPage = ++_currentPage;
+            bool pageExists;
+            if (currentPageTextBox.Text.ToString() == "")
+            {
+                pageExists = true;
+            }
+            else
+            {
+                pageExists = IfPageExists();
+            }
 
-            //de unde stii ca exista pagina 2; inainte sa iei elementele sau sa verifici cate pagini sunt maxim
-            ResetEnable(_currentPage);
+            if (pageExists)
+            {
+                labelMessage.Hide();
 
-            TextBoxAction.InitializeCurrentPageTextBox(currentPageTextBox, _currentPage);
-            //fa-i variabile pt argumente
-            InitializeDataGrid(CarService.GetFilteredList(PAGE_LIMIT, PageAction.CalculateOffset(_currentPage, PAGE_LIMIT)));
+                int currentPage = GetCurrentPage(currentPageTextBox.Text.ToString());
+                int rightNeighborValue = currentPage + 1;
+                if (currentPage > 1)
+                {
+                    int leftNeighbourValue = currentPage - 1;
+                    leftNeighbor.Text = leftNeighbourValue.ToString();
+                }
+
+                DisplayCars(currentPage);
+                TextBoxAction.SetPageNr(currentPageTextBox, currentPage);
+
+                rightNeighbor.Text = rightNeighborValue.ToString();
+            }
+            else
+            {
+                labelMessage.Text = "There is no result for the input value!";
+                labelMessage.ForeColor = System.Drawing.Color.Red;
+                labelMessage.Show();
+            }
         }
 
         private void CalculatePrice(object sender, EventArgs e)
@@ -157,79 +168,42 @@ namespace RentalCar.WindowsForm
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            _currentPage = TextBoxAction.GetPreviousValueForPage(currentPageTextBox);
-            bool enablePrevious = IsFirstPage(_currentPage);
-            // de ce nu verifi si daca este ultimul (next)
-
-            if(enablePrevious)
+            bool pageExists = IfPageExists();
+            if (pageExists)
             {
-                previousButton.Enabled = false;
-                //next nu este verificat
-                nextButton.Enabled = true;
-                TextBoxAction.SetPreviousValueForPage(currentPageTextBox);
-            }
-            else
-            {
-                TextBoxAction.InitializeCurrentPageTextBox(currentPageTextBox, _currentPage);
-            }
+                int currentPage = Int32.Parse(currentPageTextBox.Text.ToString());
+                if (currentPage > 1)
+                {
+                    int newCurrentPage = currentPage - 1;
 
-            double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
-            List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
-            InitializeDataGrid(listOfCars);
+                    int leftNeighbourValue = newCurrentPage - 1;
+                    int rightNeighbourValue = currentPage;
+
+                    DisplayCars(newCurrentPage);
+                    TextBoxAction.SetPageNr(currentPageTextBox, newCurrentPage);
+
+                    leftNeighbor.Text = leftNeighbourValue.ToString();
+                    rightNeighbor.Text = rightNeighbourValue.ToString();
+                }
+            }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            _currentPage = TextBoxAction.GetNextValueForPage(currentPageTextBox);
-            bool enableNext = IsLastPage(_currentPage);
+            bool pageExists = IfPageExists();
+            if (pageExists)
+            {
+                int currentPage = Int32.Parse(currentPageTextBox.Text.ToString());
+                int newCurrentPage = currentPage + 1;
 
-            if (enableNext)
-            {
-                nextButton.Enabled = false;
-                previousButton.Enabled = true;
-                TextBoxAction.SetNextValueForPage(currentPageTextBox);
-            }
-            else
-            {
-                if (Int32.Parse(currentPageTextBox.Text.ToString()) == 1)
-                {}
-                else
-                {
-                    nextButton.Enabled = true;
-                    previousButton.Enabled = true;
-                }
-            }
+                int leftNeighbourValue = currentPage;
+                int rightNeighbourValue = newCurrentPage + 1;
 
-            double offset = PageAction.CalculateOffset(_currentPage, PAGE_LIMIT);
-            List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
-            InitializeDataGrid(listOfCars);
-        }
+                DisplayCars(newCurrentPage);
+                TextBoxAction.SetPageNr(currentPageTextBox, newCurrentPage);
 
-        private bool IsLastPage(int _currentPage)
-        {
-            
-            int nrOfCars = CarService.GetTotalNrOfCars();
-            int nrOfPages = Convert.ToInt32(PageAction.GetNrOfPages(nrOfCars, PAGE_LIMIT));
-
-            if (_currentPage == nrOfPages)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private bool IsFirstPage(int _currentPage = 1)
-        {
-            if (_currentPage > 2)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
+                leftNeighbor.Text = leftNeighbourValue.ToString();
+                rightNeighbor.Text = rightNeighbourValue.ToString();
             }
         }
 
@@ -240,6 +214,95 @@ namespace RentalCar.WindowsForm
             addForm.Show();
         }
 
+        private int GetCurrentPage(string currentPage)
+        {
+            bool isNumber = Microsoft.VisualBasic.Information.IsNumeric(currentPage);
+            
+            if (!isNumber)
+            {
+                currentPage = "1";
+            }
+            return Int32.Parse(currentPage);
+        }
+
+        private bool IfPageExists()
+        {
+            string currentPageStringValue = currentPageTextBox.Text.ToString();
+            //is character
+            if (Regex.IsMatch(currentPageStringValue, @"^[a-zA-Z]+$") && (!Regex.IsMatch(currentPageStringValue, @"^\d$")))
+            {
+                return false;
+            }
+            //is number
+            else if(!Regex.IsMatch(currentPageStringValue, @"^[a-zA-Z]+$") && (Regex.IsMatch(currentPageStringValue, @"^\d$")))
+            {
+                int nrOfCars = CarService.GetTotalNrOfCars();
+                int nrOfPages = Convert.ToInt32(PageAction.GetNrOfPages(nrOfCars, PAGE_LIMIT));
+                int currentPageIntValue = Int32.Parse(currentPageTextBox.Text.ToString());
+
+                if (currentPageIntValue <= nrOfPages)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            //is special character
+            else 
+            {
+                return false;
+            }
+        }
+
+        private void DisplayCars(int currentPage)
+        {
+            int nrOfCars;
+            int nrOfPages;
+            
+            nrOfCars = CarService.GetTotalNrOfCars();
+
+            if(nrOfCars > 0)
+            {
+                nrOfPages = Convert.ToInt32(PageAction.GetNrOfPages(nrOfCars, PAGE_LIMIT));
+                double offset = PageAction.CalculateOffset(currentPage, PAGE_LIMIT);
+                List<tblCar> listOfCars = CarService.GetFilteredList(PAGE_LIMIT, offset);
+                InitializeDataGrid(listOfCars);
+
+
+                if (currentPage == 1)
+                {
+                    previousButton.Visible = false;
+                    leftNeighbor.Visible = false;
+                }
+                else if (currentPage > 1 && currentPage < nrOfPages)
+                {
+                    previousButton.Visible = true;
+                    nextButton.Visible = true;
+                    rightNeighbor.Visible = true;
+                    leftNeighbor.Visible = true;
+                }
+                else if (currentPage == nrOfPages)
+                {
+                    previousButton.Visible = true;
+                    leftNeighbor.Visible = true;
+                    nextButton.Visible = false;
+                    rightNeighbor.Visible = false;
+                }
+                else if(currentPage > nrOfPages)
+                {
+                    labelMessage.Text = "There is no result for the input value!";
+                    labelMessage.ForeColor = System.Drawing.Color.Red;
+                }
+            }
+            else
+            {
+                labelMessage.Text = "There is no result for the input value!";
+                labelMessage.ForeColor = System.Drawing.Color.Red;
+            }
+            
+        }
     }
 
 }

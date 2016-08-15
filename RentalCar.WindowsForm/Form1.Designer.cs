@@ -49,8 +49,9 @@
             this.previousButton = new System.Windows.Forms.Button();
             this.currentPageTextBox = new System.Windows.Forms.TextBox();
             this.addButtonCar = new System.Windows.Forms.Button();
-            this.firstPageNr = new System.Windows.Forms.TextBox();
-            this.lastPageNr = new System.Windows.Forms.TextBox();
+            this.rightNeighbor = new System.Windows.Forms.Button();
+            this.leftNeighbor = new System.Windows.Forms.Button();
+            this.labelMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,12 +137,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(356, 62);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(267, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(333, 150);
             this.dataGridView1.TabIndex = 9;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(426, 313);
+            this.button2.Location = new System.Drawing.Point(464, 332);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(121, 23);
             this.button2.TabIndex = 10;
@@ -202,9 +203,9 @@
             // 
             // nextButton
             // 
-            this.nextButton.Location = new System.Drawing.Point(562, 218);
+            this.nextButton.Location = new System.Drawing.Point(632, 215);
             this.nextButton.Name = "nextButton";
-            this.nextButton.Size = new System.Drawing.Size(52, 23);
+            this.nextButton.Size = new System.Drawing.Size(57, 23);
             this.nextButton.TabIndex = 17;
             this.nextButton.Text = ">";
             this.nextButton.UseVisualStyleBackColor = true;
@@ -214,7 +215,7 @@
             // 
             this.previousButton.Location = new System.Drawing.Point(356, 218);
             this.previousButton.Name = "previousButton";
-            this.previousButton.Size = new System.Drawing.Size(49, 23);
+            this.previousButton.Size = new System.Drawing.Size(57, 23);
             this.previousButton.TabIndex = 18;
             this.previousButton.Text = "<";
             this.previousButton.UseVisualStyleBackColor = true;
@@ -222,14 +223,14 @@
             // 
             // currentPageTextBox
             // 
-            this.currentPageTextBox.Location = new System.Drawing.Point(450, 218);
+            this.currentPageTextBox.Location = new System.Drawing.Point(498, 215);
             this.currentPageTextBox.Name = "currentPageTextBox";
-            this.currentPageTextBox.Size = new System.Drawing.Size(53, 20);
+            this.currentPageTextBox.Size = new System.Drawing.Size(49, 20);
             this.currentPageTextBox.TabIndex = 19;
             // 
             // addButtonCar
             // 
-            this.addButtonCar.Location = new System.Drawing.Point(450, 342);
+            this.addButtonCar.Location = new System.Drawing.Point(484, 361);
             this.addButtonCar.Name = "addButtonCar";
             this.addButtonCar.Size = new System.Drawing.Size(75, 23);
             this.addButtonCar.TabIndex = 20;
@@ -237,27 +238,39 @@
             this.addButtonCar.UseVisualStyleBackColor = true;
             this.addButtonCar.Click += new System.EventHandler(this.buttonAddClicked);
             // 
-            // firstPageNr
+            // rightNeighbor
             // 
-            this.firstPageNr.Location = new System.Drawing.Point(411, 218);
-            this.firstPageNr.Name = "firstPageNr";
-            this.firstPageNr.Size = new System.Drawing.Size(29, 20);
-            this.firstPageNr.TabIndex = 21;
+            this.rightNeighbor.Location = new System.Drawing.Point(553, 231);
+            this.rightNeighbor.Name = "rightNeighbor";
+            this.rightNeighbor.Size = new System.Drawing.Size(42, 23);
+            this.rightNeighbor.TabIndex = 21;
+            this.rightNeighbor.UseVisualStyleBackColor = true;
             // 
-            // lastPageNr
+            // leftNeighbor
             // 
-            this.lastPageNr.Location = new System.Drawing.Point(518, 218);
-            this.lastPageNr.Name = "lastPageNr";
-            this.lastPageNr.Size = new System.Drawing.Size(29, 20);
-            this.lastPageNr.TabIndex = 22;
+            this.leftNeighbor.Location = new System.Drawing.Point(450, 231);
+            this.leftNeighbor.Name = "leftNeighbor";
+            this.leftNeighbor.Size = new System.Drawing.Size(42, 23);
+            this.leftNeighbor.TabIndex = 22;
+            this.leftNeighbor.UseVisualStyleBackColor = true;
+            // 
+            // labelMessage
+            // 
+            this.labelMessage.AutoSize = true;
+            this.labelMessage.Location = new System.Drawing.Point(498, 283);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelMessage.Size = new System.Drawing.Size(0, 13);
+            this.labelMessage.TabIndex = 23;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 418);
-            this.Controls.Add(this.lastPageNr);
-            this.Controls.Add(this.firstPageNr);
+            this.Controls.Add(this.labelMessage);
+            this.Controls.Add(this.leftNeighbor);
+            this.Controls.Add(this.rightNeighbor);
             this.Controls.Add(this.addButtonCar);
             this.Controls.Add(this.currentPageTextBox);
             this.Controls.Add(this.previousButton);
@@ -310,8 +323,9 @@
         private System.Windows.Forms.Button previousButton;
         private System.Windows.Forms.TextBox currentPageTextBox;
         private System.Windows.Forms.Button addButtonCar;
-        private System.Windows.Forms.TextBox firstPageNr;
-        private System.Windows.Forms.TextBox lastPageNr;
+        private System.Windows.Forms.Button rightNeighbor;
+        private System.Windows.Forms.Button leftNeighbor;
+        private System.Windows.Forms.Label labelMessage;
     }
 }
 

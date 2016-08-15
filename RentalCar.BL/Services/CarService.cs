@@ -41,9 +41,14 @@ namespace RentalCar.WindowsForm.Services
             return CarRepository.GetTotalNrOfCars();
         }
 
-        //public static int GetTotalNrOfCarsByModelId(int modelId)
-        //{
-        //    return CarRepository.GetTotalNrOfCarByModelId(modelId);
-        //}
-    }
+        public static int CheckRegistrationNumber(int registrationNumber)
+        {
+            return CarRepository.CheckRegistrationNumber(registrationNumber); 
+        }
+
+        public static bool CheckBrandAndModel(int brand, int model)
+        {
+            return CarRepository.CheckBrandAndModel(brand, model);
+        }
+     }
 }

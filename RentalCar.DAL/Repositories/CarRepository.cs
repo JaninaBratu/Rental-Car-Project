@@ -23,7 +23,6 @@ namespace RentalCar.DAL.Repositories
 
                     throw;
                 }
-
             }
         }
 
@@ -69,11 +68,12 @@ namespace RentalCar.DAL.Repositories
         public static int AddCar(int registrationNumber, int location, int brand, int model)
         {
 
-            tblCar car = new tblCar();
             using (var context = new Rental_CarEntities1())
             {
                 if (GetRegistrationNumber(registrationNumber).Count == 0)
                 {
+                    tblCar car = new tblCar();
+                    car.CarId = context.tblCars.Max( c=> c.CarId) + 1;
                     car.RegistrationNumber = registrationNumber;
                     car.LocationId = location;
                     car.ModelId = model;
@@ -113,6 +113,59 @@ namespace RentalCar.DAL.Repositories
                 return context.tblCars.Count();
             }
         }
-        
+
+        public static int CheckRegistrationNumber(int registrationNumber)
+        {
+            tblCar car = new tblCar();
+            using (var context = new Rental_CarEntities1())
+            {
+                try
+                {
+                    car = context.tblCars.FirstOrDefault(c => c.RegistrationNumber == registrationNumber);
+                    if (car == null)
+                    {
+                        return -1;
+                    }
+                    else
+                    {
+                        return car.CarId;
+                    }
+                    
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        public static bool CheckBrandAndModel(int brand, int model)
+        {
+            using (var context = new Rental_CarEntities1())
+            {
+                try
+                {
+                    var newContext = context.tblCars.Include("tblModel.BrandId").ToList();
+                    var filteredList = newContext.Where(c => c.tblModel.BrandId == brand && c.ModelId == model);
+                    if (filteredList.Count() == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                        //FirstOrDefault(c=>c.tblModel.BrandId == brand);
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+
+                return false;
+        }
     }
 }

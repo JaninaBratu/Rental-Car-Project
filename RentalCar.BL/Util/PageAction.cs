@@ -8,7 +8,6 @@ namespace RentalCar.WindowsForm.Util
 {
     public class PageAction
     {
-        // the first arg had nrOfCars; why did u change it?
         public static double GetNrOfPages(int nrOfCars, int pageLimit)
         {
             //you must have a double result; not an interger one
