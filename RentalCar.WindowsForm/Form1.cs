@@ -80,7 +80,20 @@ namespace RentalCar.WindowsForm
             string name = nameTextBox.Text;
             string surname = surnameTextBox.Text;
             float price = float.Parse(priceTextBox.Text);
+
+            var dateFrom = dateTimePicker1.Value.Date;
+            var dateTill = dateTimePicker2.Value.Date;
+
+            var cellIndex = dataGridView1.CurrentCell.RowIndex;
+            int carId = int.Parse(dataGridView1.Rows[cellIndex].Cells[0].Value.ToString());
             
+            var car = CarService.GetCarById(carId);
+
+            //to do: the result of the function in a variable and used it
+            //put messages
+            //save rezervation
+            CarAction.ValidateDataForRezervation(name, surname, price, dateFrom, dateTill, car);
+
         }
 
         private void buttonGetListOfCars(object sender, EventArgs e)

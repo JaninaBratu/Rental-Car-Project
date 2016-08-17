@@ -116,27 +116,19 @@ namespace RentalCar.WindowsForm
             else if (resultOfValidation == -1)
             {
                 SetMessageLabel
-                    ("The registration number cannot be formed from characters. Please enter only digits!");
-                
+                    ("The registration number is LESS than the number of digits accepted. The number must be exactly 7 digits!");
             }
             else if (resultOfValidation == -2)
             {
                 SetMessageLabel
-                    ("The registration number is LESS than the number of digits accepted. The number must be exactly 7 digits!");
-                
+                    ("The registration number is GREATER than the number of digits accepted. The number must be exactly 7 digits!");
+
             }
             else if (resultOfValidation == -3)
             {
-                SetMessageLabel
-                    ("The registration number is GREATER than the number of digits accepted. The number must be exactly 7 digits!");
-                
+                SetMessageLabel("The registration number you want to save is not valid. It must be a number of exactly 7 digits!");
             }
-            else if (resultOfValidation == -4)
-            {
-                SetMessageLabel
-                    ("The registration number cannot be formed from special characters. Please enter only digits!");
-                
-            }
+            
         }
 
         public void SetMessageLabel(string message)

@@ -67,6 +67,7 @@
     <Compile Include="Util\TextBoxAction.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Util\ValidationTypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

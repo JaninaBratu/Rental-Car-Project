@@ -51,6 +51,7 @@ namespace RentalCar.DAL.Repositories
 
         public static List<tblCar> GetRegistrationNumber(int registrationNumber)
         {
+           
             using (var context = new Rental_CarEntities1())
             {
                 try
@@ -59,33 +60,42 @@ namespace RentalCar.DAL.Repositories
                 }
                 catch (Exception)
                 {
-
                     throw;
                 }
+                
             }
         }
 
         public static int AddCar(int registrationNumber, int location, int brand, int model)
         {
-
-            using (var context = new Rental_CarEntities1())
+            if (GetRegistrationNumber(registrationNumber).Count == 0)
             {
-                if (GetRegistrationNumber(registrationNumber).Count == 0)
+                using (var context = new Rental_CarEntities1())
                 {
-                    tblCar car = new tblCar();
-                    car.CarId = context.tblCars.Max( c=> c.CarId) + 1;
-                    car.RegistrationNumber = registrationNumber;
-                    car.LocationId = location;
-                    car.ModelId = model;
-                    context.tblCars.Add(car);
-                    context.SaveChanges();
-                    return car.CarId;
-                }
-                else
-                {
-                    return -1;
+                    try
+                    {
+                        tblCar car = new tblCar();
+                        //this was because the column is not auto-increment 
+                        //car.CarId = context.tblCars.Max( c=> c.CarId) + 1;
+                        car.RegistrationNumber = registrationNumber;
+                        car.LocationId = location;
+                        car.ModelId = model;
+                        car.isRent = false;
+                        context.tblCars.Add(car);
+                        context.SaveChanges(); 
+                        return car.CarId;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
                 }
             }
+            else
+            {
+                return -1;
+            }
+            
         }
 
         public static List<tblCar> GetFilteredList(int limit, double offset)
@@ -164,8 +174,6 @@ namespace RentalCar.DAL.Repositories
                     throw;
                 }
             }
-
-                return false;
         }
     }
 }

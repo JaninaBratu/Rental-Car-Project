@@ -4,14 +4,14 @@
     <Key>
       <PropertyRef Name="BrandId" />
     </Key>
-    <Property Name="BrandId" Type="int" Nullable="false" />
+    <Property Name="BrandId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="tblCar">
     <Key>
       <PropertyRef Name="CarId" />
     </Key>
-    <Property Name="CarId" Type="int" Nullable="false" />
+    <Property Name="CarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ModelId" Type="int" Nullable="false" />
     <Property Name="LocationId" Type="int" Nullable="false" />
     <Property Name="RegistrationNumber" Type="int" Nullable="false" />
@@ -21,7 +21,7 @@
     <Key>
       <PropertyRef Name="ClientId" />
     </Key>
-    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CNP" Type="int" Nullable="false" />
@@ -30,7 +30,7 @@
     <Key>
       <PropertyRef Name="LocationId" />
     </Key>
-    <Property Name="LocationId" Type="int" Nullable="false" />
+    <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -40,7 +40,7 @@
     <Key>
       <PropertyRef Name="ModelId" />
     </Key>
-    <Property Name="ModelId" Type="int" Nullable="false" />
+    <Property Name="ModelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="BrandId" Type="int" Nullable="false" />
     <Property Name="PricePerDay" Type="float" />
@@ -49,7 +49,7 @@
     <Key>
       <PropertyRef Name="RezervationId" />
     </Key>
-    <Property Name="RezervationId" Type="int" Nullable="false" />
+    <Property Name="RezervationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ClientId" Type="int" Nullable="false" />
     <Property Name="CarId" Type="int" Nullable="false" />
     <Property Name="StartDate" Type="datetime" Nullable="false" />
@@ -58,7 +58,7 @@
     <Property Name="EndLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Price" Type="float" Nullable="false" />
   </EntityType>
-  <Association Name="FK__tblCar__ModelId__1ED998B2">
+  <Association Name="FK__tblCar__ModelId__1A14E395">
     <End Role="tblModel" Type="Self.tblModel" Multiplicity="1" />
     <End Role="tblCar" Type="Self.tblCar" Multiplicity="*" />
     <ReferentialConstraint>
@@ -125,7 +125,7 @@
     <EntitySet Name="tblLocation" EntityType="Self.tblLocation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblModel" EntityType="Self.tblModel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblRezervation" EntityType="Self.tblRezervation" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__tblCar__ModelId__1ED998B2" Association="Self.FK__tblCar__ModelId__1ED998B2">
+    <AssociationSet Name="FK__tblCar__ModelId__1A14E395" Association="Self.FK__tblCar__ModelId__1A14E395">
       <End Role="tblModel" EntitySet="tblModel" />
       <End Role="tblCar" EntitySet="tblCar" />
     </AssociationSet>
